@@ -80,9 +80,17 @@ Open the local URL shown in your terminal to view the website.
 
 Create a production build:
 
+<<<<<<< HEAD
 ```bash
 npm run build
 ```
+=======
+- Replace the illustrative gallery images in `src/assets/` and update the `gallery` array in `src/routes/index.tsx` with real, consented photos.
+- Replace the sample audio at `public/music/wedding.mp3` with your own licensed wedding music; keep the filename or update the audio source in `src/routes/index.tsx`.
+- Update the exact venue and address in the venue section once confirmed. The current map link points only to Shrimadhopur.
+- The Wall of Love uses the project's Supabase database. See `supabase/README.md` for the required environment variables, schema migration, and moderation steps.
+- The venue QR code lives at public/images/location-qr.png, copied unmodified. Set VENUE_MAP_URL in src/routes/index.tsx to change where Get Directions points.
+>>>>>>> 9ac94a6 (Update complete wedding website)
 
 Preview the production build locally:
 
