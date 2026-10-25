@@ -802,54 +802,6 @@ function WeddingInvitation() {
               <SectionHeading eyebrow="खुशबू एवं शेखर के लिए" title="Wall of Love" light />
               <p className="wall-of-love-subtitle">Little wishes, endless blessings.</p>
 
-              <div className="blessings-wall" aria-live="polite">
-                {blessingsLoading ? (
-                  <p className="blessings-empty">आशीर्वाद लोड हो रहे हैं…</p>
-                ) : blessings.length === 0 ? (
-                  <p className="blessings-empty">
-                    {blessingsError
-                      ? "अभी प्रकाशित शुभकामनाएँ उपलब्ध नहीं हैं।"
-                      : "अभी कोई प्रकाशित शुभकामना नहीं है।"}
-                  </p>
-                ) : (
-                  <div className="blessings-grid">
-                    {(showAllBlessings ? blessings : blessings.slice(0, 3)).map((blessing) => (
-                      <Reveal key={blessing.id} className="blessings-card">
-                        <div className="blessing-card-heading">
-                          <h3>{blessing.name}</h3>
-                          {blessing.created_at && (
-                            <time dateTime={blessing.created_at}>
-                              {new Intl.DateTimeFormat("hi-IN", {
-                                dateStyle: "medium",
-                                timeZone: "Asia/Kolkata",
-                              }).format(new Date(blessing.created_at))}
-                            </time>
-                          )}
-                        </div>
-                        <p className="blessing-message">{blessing.message}</p>
-                      </Reveal>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {blessings.length > 3 && (
-                <Button
-                  variant="outline"
-                  className="wall-of-love-toggle"
-                  onClick={() => setShowAllBlessings((value) => !value)}
-                  aria-expanded={showAllBlessings}
-                >
-                  {showAllBlessings ? "Show Less" : "View All Blessings ♡"}
-                </Button>
-              )}
-
-              {blessingsError && blessings.length > 0 && (
-                <p className="blessings-load-error" role="status">
-                  {blessingsError}
-                </p>
-              )}
-
               <div className="blessings-panel">
                 <h3 className="blessings-form-title">अपना आशीर्वाद साझा करें</h3>
                 <form
@@ -918,6 +870,46 @@ function WeddingInvitation() {
                   )}
                 </form>
               </div>
+
+              <div className="blessings-wall" aria-live="polite">
+                {blessingsLoading ? (
+                  <p className="blessings-empty">आशीर्वाद लोड हो रहे हैं…</p>
+                ) : blessings.length === 0 ? (
+                  <p className="blessings-empty">
+                    {blessingsError
+                      ? "अभी प्रकाशित शुभकामनाएँ उपलब्ध नहीं हैं।"
+                      : "अभी कोई प्रकाशित शुभकामना नहीं है।"}
+                  </p>
+                ) : (
+                  <div className="blessings-grid">
+                    {(showAllBlessings ? blessings : blessings.slice(0, 3)).map((blessing) => (
+                      <Reveal key={blessing.id} className="blessings-card">
+                        <div className="blessing-card-heading">
+                          <h3>{blessing.name}</h3>
+                        </div>
+                        <p className="blessing-message">{blessing.message}</p>
+                      </Reveal>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {blessings.length > 3 && (
+                <Button
+                  variant="outline"
+                  className="wall-of-love-toggle"
+                  onClick={() => setShowAllBlessings((value) => !value)}
+                  aria-expanded={showAllBlessings}
+                >
+                  {showAllBlessings ? "Show Less" : "View All Blessings ♡"}
+                </Button>
+              )}
+
+              {blessingsError && blessings.length > 0 && (
+                <p className="blessings-load-error" role="status">
+                  {blessingsError}
+                </p>
+              )}
 
               <motion.p
                 className="blessings-close"

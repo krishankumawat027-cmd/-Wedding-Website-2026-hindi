@@ -1046,8 +1046,7 @@
   font: italic 17px/1.6 var(--font-display);
 }
 .blessings-wall {
-  min-height: 70px;
-  margin-top: 38px;
+  margin-top: 28px;
 }
 .blessings-empty {
   padding: 28px 16px;
@@ -1057,14 +1056,14 @@
 }
 .blessings-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
   position: relative;
   z-index: 1;
 }
 .blessings-card {
-  min-height: 220px;
-  padding: 30px;
+  min-height: 0;
+  padding: 18px;
   border: 0;
   border-radius: 10px;
   background: var(--ivory);
@@ -1081,13 +1080,13 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 12px;
-  padding-bottom: 17px;
+  gap: 8px;
+  padding-bottom: 8px;
   border-bottom: 1px solid color-mix(in oklab, var(--gold) 40%, transparent);
 }
 .blessing-card-heading h3 {
   color: var(--primary);
-  font: 500 22px/1.35 var(--font-display);
+  font: 500 18px/1.35 var(--font-display);
 }
 .blessing-card-heading time {
   flex: 0 0 auto;
@@ -1095,11 +1094,14 @@
   font-size: 12px;
 }
 .blessings-card .blessing-message {
-  margin-top: 19px;
+  display: -webkit-box;
+  margin-top: 10px;
   color: var(--primary);
-  font: italic 19px/1.7 var(--font-display);
+  font: italic 16px/1.5 var(--font-display);
   overflow-wrap: anywhere;
-  white-space: pre-wrap;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 .wall-of-love-toggle {
   display: flex;
@@ -1556,10 +1558,10 @@ footer span:first-child {
   }
   .blessings-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 14px;
   }
   .blessings-card {
-    padding: 24px;
+    padding: 18px;
   }
 }
 @media (max-width: 850px) {
@@ -1680,11 +1682,11 @@ footer span:first-child {
 @media (max-width: 600px) {
   .blessings-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 10px;
   }
   .blessings-card {
     min-height: 0;
-    padding: 24px;
+    padding: 16px;
   }
   .blessing-card-heading {
     align-items: flex-start;
